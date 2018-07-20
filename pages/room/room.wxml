@@ -1,0 +1,22 @@
+
+<import src="../tpls/products/rooms-tpl.wxml" />
+<view class='container theme-container'>
+  <view class='theme-header'>
+    <image src='{{roomcate[0].zimg}}' mode='aspectFill' style='width:100%'></image>
+  </view>
+  
+  <view class="theme-main">
+    <view class="products-box">
+        <block wx:for="{{roomcate}}">
+            <view class="products-item" bindtap="onroomTouch" data-id="{{item.Rid}}">
+                <image class="products-image" src="{{item.RPath}}" mode="aspectFill"></image>
+                <view class="products-item-bottom">
+                    <text class="name">{{item.Rname}}</text>
+                    <view class="price">￥{{item.Rprice}}                        </view>
+                </view>
+            </view>
+        </block>
+
+    </view> 
+  </view>
+</view>

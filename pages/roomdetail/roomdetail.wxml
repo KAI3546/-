@@ -1,0 +1,68 @@
+<view class="container detail-container">
+
+  <view class='detail-header-box'>
+
+  </view>
+
+  <view class='detail-topic-img'>
+    <image src='{{roomdetail[0].RPath}}' mode='aspectFit'></image>
+  </view>
+
+  <view class="cart-box">
+
+    <view class="product-counts">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{date}}">
+        <!--因为picker对flex支持不好，所以加了一层view-->
+        <view>
+          <text class="counts-tips">日期</text>
+          <text class="counts-data">{{datestage?datestage:'请选择'}}</text>
+          <image class="counts-icon" src="../../imgs/icon/arrow@down.png"></image>
+        </view>
+      </picker>
+      <picker bindchange='bindPickerChangeC' range='{{stagearr}}'>
+        <view>
+          <text class="counts-tips">场次</text>
+          <text class="counts-data">{{stage?stage:'请选择'}}</text>
+          <image class="counts-icon" src="../../imgs/icon/arrow@down.png"></image>
+        </view>
+      </picker>
+    </view>
+
+  </view>
+
+  <view class="basic-info-box">
+    
+    <view class="name">{{roomdetail[0].Rname}}</view>
+    <view class="price">￥{{roomdetail[0].Rprice}}</view>
+  </view>
+
+  <view style="width:50%;margin:0 100px;background-color:#AB956D;color:#eee;">
+  <button size='100' plain="true" bindtap='submitroom' wx:if="{{orderstatus==0}}">立即预定</button>
+  <button size='100' plain="true" wx:if="{{orderstatus==1}}">预定成功</button>
+  </view>
+
+  <view class="detail-bottom-box">
+    <view class="tabs-box">
+      <block wx:for="{{['房间详情' ,'房间参数','用户评价']}}">
+        <view class="tabs-item {{currentTabsIndex==index?'selected':''}}" bindtap="onTabsItemTap" data-index="{{index}}">
+          {{item}}
+        </view>
+      </block>
+    </view>
+    <view class="product-detail-box">
+      <view class="product-detail-imgs" hidden="{{currentTabsIndex!=0}}">
+        {{roomdetail[0].Rintroduce}}
+      </view>
+      <view class="product-detail-properties" hidden="{{currentTabsIndex!=1}}">
+          <view class="properties-item">
+            <view class="properties-name">房间房间用户参数</view>
+            
+          </view>
+      </view>
+      <view class="product-detail-protect" hidden="{{currentTabsIndex!=2}}">
+        <view>暂无评价</view>
+      </view>
+    </view>
+  </view>
+
+</view>

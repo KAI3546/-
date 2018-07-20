@@ -1,0 +1,18 @@
+<template name="products">
+    <view class="products-box">
+
+        <block wx:for="{{menuArr}}">
+            
+            <view class="products-item" bindtap="onmenuItemTap" data-id="{{item.Mid}}">
+                <image class="products-image" src="{{item.Mpath}}" mode="aspectFill"></image>
+                <view class="products-item-bottom">
+                    <text class="name">{{item.Mname}}</text>
+                    <view class="price">￥{{item.Mprice}}</view>
+                </view>
+            </view>
+        </block>
+
+    </view>
+</template>
+
+

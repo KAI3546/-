@@ -1,0 +1,14 @@
+<template name="rooms">
+    <view class="products-box">
+        <block wx:for="{{roomcate}}">
+            <view class="products-item" bindtap="onroomTouch" data-id="{{item.Rid}}">
+                <image class="products-image" src="{{item.RPath}}" mode="aspectFill"></image>
+                <view class="products-item-bottom">
+                    <text class="name">{{item.Rname}}</text>
+                    <view class="price">定金￥{{item.Rprice}}                        </view>
+                </view>
+            </view>
+        </block>
+
+    </view>
+</template>

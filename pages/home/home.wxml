@@ -1,0 +1,42 @@
+<import src="../tpls/products/products-tpl.wxml"/>
+<view class="container">
+
+  <swiper indicator-dots="true" autoplay="true" class = 'swiper'>
+    <block wx:for='{{bannerArr}}'>
+      <swiper-item class = 'banner-item' bindtap="onProductsItemTap" data-id="{{item.MCid}}">
+        <image mode ='aspectFIll' src='{{item.Mimg}}' class = 'item-image'></image>
+      </swiper-item>
+    </block>
+    <block wx:for='{{bannerArr2}}'>
+      <swiper-item class = 'banner-item' bindtap="onroomItemTap" data-id="{{item.RCid}}">
+        <image mode ='aspectFIll' src='{{item.RImg}}' class = 'item-image'></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+
+  <view class='home-main'>
+    <view class='home-main-theme'>
+      <view class="home-main-header">房间分类</view>
+            <view class="theme-box">
+            <block wx:for="{{roomArr}}" >
+
+              <view wx:if="{{index==2}}" class="theme-item big" data-id="{{item.RCid}}" data-name="{{item.RCname}}" bindtap='onroomItemTap'><image src='{{item.RImg}}'></image></view>
+
+              <view wx:else class="theme-item small" data-id="{{item.RCid}}" data-name="{{item.RCname}}" bindtap='onroomItemTap'><image src='{{item.RImg}}'></image></view>
+
+            </block>
+            </view>
+    </view>
+</view>
+
+
+    <view class="home-main-products">
+            <view class="home-main-header">人气菜单</view>
+            <template is="products" data="{{menuArr:menuArr}}"/>
+    </view>
+  
+
+
+
+</view>

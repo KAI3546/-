@@ -1,0 +1,69 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.6.4",
+	"appid": "wx7a3de5d11f5424d1",
+	"projectname": "K%E9%A4%90%E5%8E%85(%E4%BD%93%E9%AA%8C%E7%89%88)",
+	"svr": "",
+	"client": "",
+	"qcloudRoot": "",
+	"miniprogramRoot": "",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "product",
+					"pathName": "pages/product/product",
+					"query": "id=2"
+				},
+				{
+					"id": -1,
+					"name": "分类",
+					"pathName": "pages/category/category",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "roomdetail",
+					"pathName": "pages/roomdetail/roomdetail",
+					"query": "id=15"
+				},
+				{
+					"id": 3,
+					"name": "cart",
+					"pathName": "pages/cart/cart",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "roomdetail",
+					"pathName": "pages/roomdetail/roomdetail",
+					"query": "id=15"
+				},
+				{
+					"id": -1,
+					"name": "my",
+					"pathName": "pages/my/my",
+					"query": ""
+				}
+			]
+		}
+	}
+}

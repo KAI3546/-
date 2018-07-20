@@ -1,0 +1,43 @@
+<!--订单详情-->
+<view class="container order-container">
+  <!--订单编号和下单时间，如果是旧订单就显示-->
+  <view class="order-basic-info" wx:if="{{basicInfo}}">
+    <view class="order-time-no">
+      <view>
+        <text class="key">订单编号:</text>
+        <text class="order-no-txt val">{{basicInfo.orderNo}}</text>
+      </view>
+    </view>
+    <view class="order-status">
+      <text class="order-status-txt unpay" wx:if="{{orderStatus==1}}">待付款</text>
+      <text class="order-status-txt payed" wx:if="{{orderStatus==2}}">已付款</text>
+      <text class="order-status-txt done" wx:if="{{orderStatus==3}}">已发货</text>
+    </view>
+  </view>
+
+  <!--列表-->
+  <view class="order-main">
+    <block wx:for="{{productsArr}}">
+      <view class="product-item">
+        <view class="item-left">
+          <image src="{{item.Mpath}}"></image>
+        </view>
+        <view class="item-middle">
+          <view>{{item.Mname}}</view>
+          <view>￥{{item.Mprice}}</view>
+        </view>
+        <view class="item-right">
+          ×{{item.counts}}
+        </view>
+      </view>
+    </block>
+    </view>
+
+  <!--结算-->
+  <view class="footer-account-box order-accounts">
+    <view class="total-account">
+      付款合计：￥{{account}}
+    </view>
+    <view wx:if="{{orderStatus<1}}" class="pay" ontap="pay">去付款</view>
+  </view>
+</view>

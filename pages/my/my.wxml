@@ -1,0 +1,57 @@
+
+<view class="container my-container">
+  <view class="my-header">
+    <image src="{{avatarUrl}}"></image>
+    <text class="name">{{nickName}}</text>
+  </view>
+ 
+  <view class="my-order">
+    <view class="item-title">我的订单</view>
+    <view class="item-main">
+
+
+
+      <block wx:for="{{orderArr}}">
+        <view class="order-item">
+          <view class="order-header" ontap="showOrderDetailInfo" data-id="{{orderInfo[index].Yid}}">
+            <text>订单编号:</text>
+            <text class="order-no-txt">{{orderInfo[index].Yid}}</text>
+          </view>
+
+          <view class="order-main" ontap="showOrderDetailInfo" data-id="{{orderInfo[index].Yid}}">
+            <view class="item-left">
+              <image src="http://www.ktzstudio.top/hotelmanger/Admin/{{item.RPath}}"></image>
+            </view>
+            <view class="item-middle">
+              <view>{{item.Rname}}</view>
+              <view>预定日期:{{orderInfo[index].Ydate}} 场次:{{orderInfo[index].Ystage?"上午":"晚上"}}</view>
+            </view>
+            <view class="item-right">
+              <text class="order-status-txt unpay" wx:if="{{orderInfo[index].Ystate==0}}">待付款</text>
+              <text class="order-status-txt payed" wx:if="{{orderInfo[index].Ystate==1}}">已付款</text>
+              <text class="order-status-txt done" wx:if="{{orderInfo[index].Ystate==null}}">待点菜</text>
+            </view>
+          </view>
+
+          <view class="order-bottom">
+            <text>{{orderInfo[index].Yaccount?"实付:￥"+orderInfo[index].Yaccount:"待点餐"}}</text>
+            <view class="pay" ontap="showOrderDetailInfo" data-id="{{orderInfo[index].Yid}}" data-index="{{index}}">{{orderInfo[index].Yaccount?"查看订单":"请点餐"}}</view>
+          </view>
+        </view>
+      </block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </view>
+  </view>
+</view>
